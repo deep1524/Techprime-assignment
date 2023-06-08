@@ -79,12 +79,12 @@ app.get("/search/:query", async (req, res) => {
   }
 });
 
-app.post("/new-project", async (req, res) => {
+app.post("/createnewproject", async (req, res) => {
   try {
     const project = await ProjectModel.create(req.body);
     res.status(201).send({
       success: true,
-      message: "Project saved successfull",
+      message: "Project stored in database is  successfull",
       project: project,
     });
   } catch (err) {
@@ -93,7 +93,7 @@ app.post("/new-project", async (req, res) => {
   }
 });
 
-app.put("/update-status/:id", async (req, res) => {
+app.put("/changestatus/:id", async (req, res) => {
   const id = req.params.id;
   const status = req.body.status;
   try {
@@ -110,7 +110,7 @@ app.put("/update-status/:id", async (req, res) => {
   }
 });
 
-app.get("/project-stats", async (req, res) => {
+app.get("/projectdata", async (req, res) => {
   try {
     const totalProjects = await ProjectModel.countDocuments();
 
@@ -139,7 +139,7 @@ app.get("/project-stats", async (req, res) => {
   }
 });
 
-app.get("/department-stats", async (req, res) => {
+app.get("/departmentdata", async (req, res) => {
   try {
     // Retrieve the statistics of all departments
     const departmentStats = await ProjectModel.aggregate([

@@ -14,7 +14,7 @@ app.use(express.json());
 
 app.use("/users",userRouter)
 // app.use(authetication)
-app.use("/project",projectRouter)
+app.use("/projects",projectRouter)
 
 
 
