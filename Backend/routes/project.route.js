@@ -11,7 +11,7 @@ app.get("/", async (req, res) => {
     const { page } = req.query;
     const pageNumber = parseInt(page) || 1;
 
-    const limit = 8;
+    const limit = 5;
     const skip = (pageNumber - 1) * limit;
 
     const totalCount = await ProjectModel.countDocuments();
